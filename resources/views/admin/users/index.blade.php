@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('content')
 
-    <div class="card mb-4">
+    {{-- <div class="card mb-4">
         <div class="card-header d-flex justify-content-end">
             <a href="" class="btn btn-primary">Add User</a>
 
@@ -27,4 +27,4 @@
             </table>
         </div>
 
-    </div>
+    </div> --}}

@@ -20,31 +20,31 @@ Route::prefix('admin')->group(function(){
 
 
 Route::middleware([Authenticate::class])->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     
     // User Route
-    Route::get('/users/index', [UserController::class,'index'])->name('admin.users.index');
-    Route::get('/users/create', [UserController::class,'create'])->name('admin.users.create');
-    Route::post('/users/index', [UserController::class, 'store'])->name('admin.users.store');
-    Route::get('/users/{id}/edit', [UserController::class,'edit'])->name('admin.users.edit');
-    Route::put('/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
+    Route::get('/users/index', [UserController::class,'index'])->name('users');
+    Route::get('/users/create', [UserController::class,'create'])->name('users.create');
+    Route::post('/users/index', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{id}/edit', [UserController::class,'edit'])->name('users.edit');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 
     // Category Route
-    Route::get('/categories', [CategoryController::class,'index'])->name('admin.categories.index');
-    Route::get('/categories/create', [CategoryController::class,'create'])->name('admin.categories.create');
-    Route::post('/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
-    Route::get('/categories/{id}/edit', [CategoryController::class,'edit'])->name('admin.categories.edit');
-    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('admin.categories.update');
+    Route::get('/categories/index', [CategoryController::class,'index'])->name('categories');
+    Route::get('/categories/create', [CategoryController::class,'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/{id}/edit', [CategoryController::class,'edit'])->name('categories.edit');
+    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
     // Products Route
-    Route::get('/products', [DashboardController::class,'index'])->name('admin.products.index');
-    Route::get('/products/create', [CategoryController::class,'create'])->name('admin.products.create');
-    Route::post('/products', [CategoryController::class, 'store'])->name('admin.products.store');
-    Route::get('/products/{id}/edit', [CategoryController::class,'edit'])->name('admin.products.edit');
-    Route::put('/products/{id}', [CategoryController::class, 'update'])->name('admin.products.update');
+    Route::get('/products/index', [DashboardController::class,'index'])->name('products');
+    Route::get('/products/create', [CategoryController::class,'create'])->name('products.create');
+    Route::post('/products', [CategoryController::class, 'store'])->name('products.store');
+    Route::get('/products/{id}/edit', [CategoryController::class,'edit'])->name('products.edit');
+    Route::put('/products/{id}', [CategoryController::class, 'update'])->name('products.update');
 
     // Order Route
-    Route::get('/orders', [DashboardController::class,'index'])->name('admin.orders');
+    Route::get('/orders', [DashboardController::class,'index'])->name('orders');
 });
 
  
