@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         $title = "Product Categories";
-        return view('admin.categories.index', compact('categories'));
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function create()
     {
         $title = "Create Categories";
-        return view('admin.categories.create');
+        return view('categories.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class CategoryController extends Controller
         $user = User::findorFail($id);
 
     // terus, kita arahin ke view edit, terus kirim data user yang lama
-    return view('admin.categories.edit', compact('category'));
+    return view('categories.edit', compact('category'));
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
 
         $category->update($updateData);
 
-        return redirect()->route('admin.categories.index')->with('Success', 'Successfully Update Category');
+        return redirect()->route('categories.index')->with('Success', 'Successfully Update Category');
 
     }
 
@@ -92,6 +92,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with('Success', 'Category has been deleted');
+        return redirect()->route('categories.index')->with('Success', 'Category has been deleted');
     }
 }
