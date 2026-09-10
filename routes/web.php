@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use Illuminate\Auth\Middleware\Authenticate;
+
 
 
 // Route::get('/', function () {
@@ -14,16 +14,16 @@ use Illuminate\Auth\Middleware\Authenticate;
 // });
 
 Route::prefix('admin')->group(function(){
-    Route::get('/', [LoginController::class, 'login']);
+    Route::get('/', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'actionLogin'])->name('action-login');
 });
 
+    Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
 
-Route::middleware([Authenticate::class])->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     
     // User Route
-    Route::get('/users/index', [UserController::class,'index'])->name('admin.users.index');
+    Route::get('/users', [UserController::class,'index'])->name('admin.users.index');
     Route::get('/users/create', [UserController::class,'create'])->name('admin.users.create');
     Route::post('/users/index', [UserController::class, 'store'])->name('admin.users.store');
     Route::get('/users/{id}/edit', [UserController::class,'edit'])->name('admin.users.edit');
@@ -46,5 +46,3 @@ Route::middleware([Authenticate::class])->prefix('admin')->name('admin.')->group
     // Order Route
     Route::get('/orders', [DashboardController::class,'index'])->name('admin.orders');
 });
-
- 

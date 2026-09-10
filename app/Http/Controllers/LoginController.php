@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function Login()
+    public function login()
     {
         return view('login.login');
 
@@ -18,20 +18,24 @@ class LoginController extends Controller
     // terus tolong masukin ke kotak bernama $request ya!
 
     {
+        
          // 1. Satpam validasirequestan
         $credentials = $request->validate([
+            
             'email'=> 'required|email',
-            'password'=> 'required|min:6',
+            'password'=> 'required|min:8',
         ]);
     
         // 2. Cocokkan ke database phpMyAdmin
         if (Auth::attempt($credentials)) {
             // Perbarui kunci keamanan sesi digital
             $request->session()->regenerate();
+
             
             // Antarkan langsung masuk ke halaman dashboard
-            return redirect()->intended('/admin/dashboard'); 
+            return redirect()->intended('/admin/dashboard');
         }
+        
         
         // 3. Jika salah password, tendang balik ke halaman login (Kurung kurawal sudah diperbaiki)
         return back()

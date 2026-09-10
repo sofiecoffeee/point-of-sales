@@ -24,7 +24,7 @@
         <!-- Brand Logo / Identity -->
         <a href="index.html" class="sidebar-brand">
             <i class="bi bi-asterisk"></i>
-            <span>Spark Admin</span>
+            <span>Point of Sales | PPKD</span>
         </a>
 
         <!-- Navigation Menu -->
@@ -139,17 +139,6 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-quick-action" aria-labelledby="quick-actions-dropdown">
                         <li class="dropdown-header">Quick Action Shortcuts</li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-plus"></i> New
-                                Invoice</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus"></i> New User</a>
-                        </li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-seam"></i> New Product</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> System Settings</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -262,31 +251,8 @@
                 </div>
             </div>
             <!-- END: Blank Page Content Area -->
-
-
-            <!-- START: Footer Component -->
-            <footer class="footer-custom">
-                <div class="footer-left">
-                    <span class="footer-logo">
-                        <i class="bi bi-asterisk"></i> Spark Admin
-                    </span>
-                    <span class="footer-separator">|</span>
-                    <span class="footer-copy">&copy; 2026 Made with <i
-                            class="bi bi-heart-fill text-danger footer-heart"></i> by<a
-                            href="https://sparkadminpro.gumroad.com/" target="_blank">Spark Admin</a>• Distributed by
-                        <a href="https://www.themewagon.com/" target="_blank">ThemeWagon</a> </span>
-                </div>
-                <div class="footer-right">
-                    <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Overview</a></li>
-                        <li><a href="#" class="footer-link">Statistics</a></li>
-                        <li><a href="#" class="footer-link">Help & Documentation</a></li>
-                        <li><a href="#" class="footer-link">Status <span class="status-dot"></span></a></li>
-                    </ul>
-                </div>
-            </footer>
-            <!-- END: Footer Component -->
-            @include('inc.js')
+         
+    @include('inc.js')
 
 </body>
 

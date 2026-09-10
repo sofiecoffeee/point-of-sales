@@ -2,7 +2,7 @@
   <script src="{{ asset('spark-admin-1.0.0/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Custom Authentication interactions script -->
-  <script src=href="{{ asset('spark-admin-1.0.0/assets/js/auth.js') }}"></script>
+  <script src="{{ asset('spark-admin-1.0.0/assets/js/auth.js') }}"></script>
 
   <!-- Custom Authentication interactions script -->
 
