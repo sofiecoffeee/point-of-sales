@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         // ambil data produk sekaligus relasi kategorinya
         $products = Product::with('category')->get();
-        $title = "Products Data";
+        $title = "Products Management";
 
         // terus tunjukin deh
         return view('admin.products.index', compact('products', 'title'));

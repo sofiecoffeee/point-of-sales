@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 
 // Public Route (Login)
 Route::prefix('admin')->group(function(){
@@ -27,6 +28,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
     // Route::post('/users/index', [UserController::class, 'store'])->name('users.store');
     // Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     // Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+
+    // Role Controller
+    Route::resource('/roles', RoleController::class);
 
     // Category Routes
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');

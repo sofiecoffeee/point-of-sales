@@ -10,7 +10,7 @@ class UserController extends Controller
 {
    public function index() {
     $users = User::all();
-    $title = "User Data";
+    $title = "User Management";
     return view ('admin.users.index', compact('users', 'title'));
     }
 

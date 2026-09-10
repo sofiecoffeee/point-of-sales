@@ -1,7 +1,9 @@
 @extends('layout.app')
 @section('content')
-    @if (@session('success'))
-        sdkfskdfkjsadhfasdf
+   @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
     @endif
     <div class="card">
         <div class="d-flex align-items-center justify-content-end w-100">
