@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,41 +18,43 @@ class UserController extends Controller
     $roles = Role::all();
     $title = "Add User";
 
-    return view('admin.users.create', compact('roles'));
+    return view('admin.users.create', compact('roles', 'title'));
 
    }
 
-   public function store(){
-    // kita validasi dulu data yang mau ditangkep dari form tambah user
-    $validateData = $request->validate([
+   public function store(Request $request){
+       // kita validasi dulu data yang mau ditangkep dari form tambah user
+
+    $validatedData = $request->validate([
         'name' => 'required|string|max:255',
         'email'=> 'required|email|unique:users,email',
         'password'=> 'required|min:8',
-        'role'=>'required|string',
+        'role_id'=>'required',
     ]);
     // terus kita jalanin fungsi create buat simpen data2 yang udah divalidasi biar disimpen di dalem database
     User::create([
         'name'=>$validatedData['name'],
         'email'=>$validatedData['email'],
         'password'=>Hash::make($request->password),
-        'role'->request->role,
+        'role_id'=>$validatedData['role_id'],
     ]);
     // nah abis itu kita redirect deh ke halaman index biar keliatan udah kesimpen datanya
-    return redirect()->route('admin.users.index')->with('Success', 'User successfully added');
+    return redirect()->route('admin.users.index')->with('success', 'User successfully added');
     
    }
 
    public function edit($id){
     // pertama, kita cari dulu user berdasarkan ID, kalo ga ketemu/fail nanti muncul halaman 404
     $user = User::findorFail($id);
+    $roles = Role::all();
     $title = "Edit User";
 
     // terus, kita arahin ke view edit, terus kirim data user yang lama
-    return view('admin.users.edit', compact('user'));
+    return view('admin.users.edit', compact('user', 'roles'));
     
    }
 
-   public function update($request, $id){
+   public function update(Request $request, $id){
     // Update buat simpen perubahan data
     $user = User::findOrFail($id);
 
@@ -59,7 +62,7 @@ class UserController extends Controller
     $validatedData = $request->validate([
         'name'=>'required|string|max:255',
         'email'=> 'required|email|unique:users,email,'. $id,
-        'role'=>'required|string',
+        'role_id'=>'required|string',
         'password'=>'nullable|min:8',
         ]);
 
@@ -67,7 +70,7 @@ class UserController extends Controller
     $updateData = [
         'name'=>$validatedData['name'],
         'email'=>$validatedData ['email'],
-        'role'=>$validatedData ['role'],
+        'role_id'=>$validatedData ['role_id'],
     ];
 
     // kalo kolom password diisi sama admin, maka bakal di encrypt dan masuk ke array update
@@ -77,10 +80,10 @@ class UserController extends Controller
     // update data ke database
     $user->update($updateData);
 
-    return redirect()->route('admin.users.index')->with('Success', 'Successfully update user data!');
+    return redirect()->route('admin.users.index')->with('success', 'Successfully update user data!');
    }
 
-   public function destroy(){
+   public function destroy($id){
     // cari user berdasarkan ID, kalo gaada error 404
     $user = User::findorFail($id);
 
@@ -88,6 +91,6 @@ class UserController extends Controller
     $user->delete();
 
     // redirect ke halaman awal deh
-    return redirect()->route('admin.users.index')->with('Success', 'User has been deleted');
+    return redirect()->route('admin.users.index')->with('success', 'User has been deleted');
    }
 }

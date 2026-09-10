@@ -45,50 +45,50 @@
    1. Google Fonts CDN Import (Plus Jakarta Sans)
 --------------------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
 /* ---------------------------------------------------------------------
    2. Design System Variables
 --------------------------------------------------------------------- */
 :root {
     /* Colors */
-    --bs-body-bg: #F4F6F5; /* Canvas background: light, warm grayish-green */
-    --bs-body-font-family: 'Plus Jakarta Sans', sans-serif;
-    
-    --brand-forest-dark: #051C12;     /* Core sidebar/brand background */
-    --brand-forest-medium: #072F1F;   /* Alert banner / dark card BG */
-    --brand-forest-light: #1A3E30;    /* Interactive elements in dark mode */
-    --brand-lime: #B4F105;            /* Lime-yellow accent highlight */
-    --brand-lime-hover: #c1f824;      
+    --bs-body-bg: #f4f6f5; /* Canvas background: light, warm grayish-green */
+    --bs-body-font-family: "Plus Jakarta Sans", sans-serif;
+
+    --brand-forest-dark: #051c12; /* Core sidebar/brand background */
+    --brand-forest-medium: #072f1f; /* Alert banner / dark card BG */
+    --brand-forest-light: #1a3e30; /* Interactive elements in dark mode */
+    --brand-lime: #b4f105; /* Lime-yellow accent highlight */
+    --brand-lime-hover: #c1f824;
     --brand-lime-translucent: rgba(180, 241, 5, 0.15);
-    
-    --text-main: #0B130F;             /* Dark headers, main labels */
-    --text-muted-green: #6C7E75;      /* Secondary labels, muted details */
-    --text-sidebar-muted: #879A91;    /* Sidebar inactive link labels */
-    
-    --card-background: #FFFFFF;
-    --border-light: #E9EFEF;
+
+    --text-main: #0b130f; /* Dark headers, main labels */
+    --text-muted-green: #6c7e75; /* Secondary labels, muted details */
+    --text-sidebar-muted: #879a91; /* Sidebar inactive link labels */
+
+    --card-background: #ffffff;
+    --border-light: #e9efef;
     --border-dark-green: rgba(255, 255, 255, 0.1);
-    
+
     /* System Colors */
-    --sys-green: #22C55E;
-    --sys-green-bg: #DCFCE7;
-    --sys-red: #EF4444;
-    --sys-red-bg: #FEE2E2;
-    --sys-orange: #F97316;
-    --sys-orange-bg: #FFEDD5;
-    
+    --sys-green: #22c55e;
+    --sys-green-bg: #dcfce7;
+    --sys-red: #ef4444;
+    --sys-red-bg: #fee2e2;
+    --sys-orange: #f97316;
+    --sys-orange-bg: #ffedd5;
+
     /* Layout Configurations */
     --sidebar-width: 280px;
     --navbar-height: 80px;
-    
+
     /* Border Radii */
     --radius-xxl: 24px;
     --radius-xl: 18px;
     --radius-lg: 14px;
     --radius-md: 10px;
     --radius-sm: 6px;
-    
+
     /* Box Shadows */
     --shadow-sm: 0 2px 8px rgba(11, 19, 15, 0.02);
     --shadow-md: 0 10px 30px rgba(11, 19, 15, 0.04);
@@ -108,7 +108,18 @@ body {
     letter-spacing: -0.01em;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
     color: var(--text-main);
     font-weight: 700;
     letter-spacing: -0.025em;
@@ -131,11 +142,11 @@ a:hover {
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
+    background: #cbd5e1;
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #94A3B8;
+    background: #94a3b8;
 }
 
 /* ---------------------------------------------------------------------
@@ -163,7 +174,7 @@ a:hover {
     gap: 0.75rem;
     font-size: 1.35rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: 2.5rem;
     padding-left: 0.5rem;
     text-decoration: none;
@@ -171,13 +182,15 @@ a:hover {
 }
 
 .sidebar-brand:hover {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .sidebar-brand i {
     color: var(--brand-lime);
     font-size: 1.5rem;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
 }
 
 .sidebar-brand:hover i {
@@ -230,19 +243,19 @@ a:hover {
 
 /* Active State & Hover States */
 .sidebar-menu-link:hover {
-    color: #FFFFFF;
+    color: #ffffff;
     background-color: rgba(255, 255, 255, 0.03);
 }
 
 .sidebar-menu-link.active {
-    color: #FFFFFF;
+    color: #ffffff;
     background-color: rgba(255, 255, 255, 0.05);
     font-weight: 600;
 }
 
 /* Vertical indicator border on left edge */
 .sidebar-menu-link.active::before {
-    content: '';
+    content: "";
     position: absolute;
     left: -1.5rem;
     top: 15%;
@@ -294,7 +307,7 @@ a:hover {
 }
 
 .sidebar-submenu-link:hover {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 /* Bottom Profile Card in Sidebar */
@@ -307,7 +320,7 @@ a:hover {
     padding: 0.85rem;
     border-radius: var(--radius-xl);
     border: 1px solid var(--border-dark-green);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .sidebar-profile-img {
@@ -392,11 +405,12 @@ body.sidebar-minimized .sidebar-profile {
 --------------------------------------------------------------------- */
 .main-wrapper {
     margin-left: var(--sidebar-width);
-    padding: 2rem 2.5rem;
+    padding: 0 2.5rem 2rem;
     min-height: 100vh;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
+    display: block;
+    width: calc(100% - var(--sidebar-width));
+    box-sizing: border-box;
 }
 
 /* ---------------------------------------------------------------------
@@ -406,17 +420,22 @@ body.sidebar-minimized .sidebar-profile {
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    width: 100%;
+    box-sizing: border-box;
+
     background-color: rgba(244, 246, 245, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    margin-top: -2rem;
-    margin-left: -2.5rem;
-    margin-right: -2.5rem;
+
     padding: 1.25rem 2.5rem;
+
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
     display: grid !important;
-    grid-template-columns: 1fr 480px 1fr !important;
+    grid-template-columns: 1fr auto 1fr !important;
     align-items: center;
+
     margin-bottom: 2rem;
     gap: 1.5rem;
 }
@@ -430,7 +449,7 @@ body.sidebar-minimized .sidebar-profile {
 /* Quick Actions Dropdown Button */
 .btn-quick-action {
     background-color: var(--brand-forest-medium);
-    color: #FFFFFF;
+    color: #ffffff;
     border: none;
     border-radius: var(--radius-lg);
     padding: 0.5rem 1.15rem;
@@ -444,10 +463,9 @@ body.sidebar-minimized .sidebar-profile {
     cursor: pointer;
 }
 
-
 .btn-quick-action:hover {
     background-color: var(--brand-forest-dark);
-    color: #FFFFFF;
+    color: #ffffff;
     box-shadow: 0 4px 12px var(--brand-lime-translucent);
 }
 
@@ -470,7 +488,7 @@ body.sidebar-minimized .sidebar-profile {
 
 /* Custom Dropdown Menu styles */
 .dropdown-menu-quick-action {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1px solid var(--border-light) !important;
     border-radius: var(--radius-xl) !important;
     box-shadow: var(--shadow-lg) !important;
@@ -479,7 +497,6 @@ body.sidebar-minimized .sidebar-profile {
     border: none !important;
     animation: dropdownFadeIn 0.2s ease;
 }
-
 
 .dropdown-menu-quick-action .dropdown-header {
     font-size: 0.725rem;
@@ -542,7 +559,7 @@ body.sidebar-minimized .sidebar-profile {
 
 .navbar-search-input {
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--border-light);
     border-radius: 50rem;
     padding: 0.65rem 1.25rem;
@@ -576,15 +593,14 @@ body.sidebar-minimized .sidebar-profile {
 .navbar-actions {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 0.75rem;
+    margin-left: auto;
 }
 
 .navbar-action-btn {
     width: 42px;
     height: 42px;
     border-radius: var(--radius-lg);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--border-light);
     color: var(--text-main);
     display: flex;
@@ -609,7 +625,7 @@ body.sidebar-minimized .sidebar-profile {
     height: 11px;
     background-color: var(--sys-green);
     border-radius: 50rem;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
     animation: statusPulse 2s infinite;
 }
@@ -637,8 +653,6 @@ body.sidebar-minimized .sidebar-profile {
         opacity: 1;
     }
 }
-
-
 
 .notification-header {
     display: flex;
@@ -743,7 +757,7 @@ body.sidebar-minimized .sidebar-profile {
 
 .btn-dark-custom {
     background-color: var(--text-main);
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 600;
     font-size: 0.875rem;
     padding: 0.65rem 1.25rem;
@@ -758,7 +772,7 @@ body.sidebar-minimized .sidebar-profile {
 
 .btn-dark-custom:hover {
     background-color: #000000;
-    color: #FFFFFF;
+    color: #ffffff;
     transform: translateY(-1px);
 }
 
@@ -766,7 +780,7 @@ body.sidebar-minimized .sidebar-profile {
     width: 20px;
     height: 20px;
     border-radius: 50rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: var(--text-main);
     display: flex;
     align-items: center;
@@ -780,7 +794,7 @@ body.sidebar-minimized .sidebar-profile {
     width: 42px;
     height: 42px;
     border-radius: var(--radius-lg);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--border-light);
     color: var(--text-main);
     align-items: center;
@@ -795,7 +809,7 @@ body.sidebar-minimized .sidebar-profile {
     width: 42px;
     height: 42px;
     border-radius: var(--radius-lg);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--border-light);
     color: var(--text-main);
     cursor: pointer;
@@ -832,7 +846,7 @@ body.sidebar-minimized .sidebar-profile {
 }
 
 .btn-date-picker {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--border-light);
     border-radius: 50rem;
     padding: 0.55rem 1.25rem;
@@ -930,7 +944,7 @@ body.sidebar-minimized .sidebar-profile {
 /* Alert Dark Green Card */
 .alert-green-card {
     background-color: var(--brand-forest-medium);
-    color: #FFFFFF;
+    color: #ffffff;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -960,7 +974,7 @@ body.sidebar-minimized .sidebar-profile {
 }
 
 .alert-green-card .stat-value {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .alert-green-badge {
@@ -968,7 +982,7 @@ body.sidebar-minimized .sidebar-profile {
     align-items: center;
     gap: 0.35rem;
     background-color: rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.35rem 0.75rem;
@@ -977,7 +991,7 @@ body.sidebar-minimized .sidebar-profile {
 }
 
 .alert-green-badge::before {
-    content: '';
+    content: "";
     display: inline-block;
     width: 6px;
     height: 6px;
@@ -1024,7 +1038,7 @@ body.sidebar-minimized .sidebar-profile {
 }
 
 .alert-green-link:hover {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .alert-green-link i {
@@ -1049,7 +1063,7 @@ body.sidebar-minimized .sidebar-profile {
     align-items: center;
     justify-content: space-between;
     padding: 0.85rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: var(--radius-xl);
     transition: background-color 0.2s ease-in-out;
 }
@@ -1211,7 +1225,7 @@ body.sidebar-minimized .sidebar-profile {
 
 /* Promo Banner Card */
 .promo-banner-card {
-    background-color: #E2E8DF; /* Soft light olive-sage */
+    background-color: #e2e8df; /* Soft light olive-sage */
     border-radius: var(--radius-xxl);
     padding: 1.75rem;
     position: relative;
@@ -1258,7 +1272,7 @@ body.sidebar-minimized .sidebar-profile {
 
 .btn-promo {
     background-color: var(--brand-forest-dark);
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 700;
     font-size: 0.85rem;
     padding: 0.75rem 1.25rem;
@@ -1273,7 +1287,7 @@ body.sidebar-minimized .sidebar-profile {
 
 .btn-promo:hover {
     background-color: #000000;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 /* ---------------------------------------------------------------------
@@ -1283,36 +1297,26 @@ body.sidebar-minimized .sidebar-profile {
     .sidebar-wrapper {
         transform: translateX(-100%);
     }
-    
+
     .sidebar-wrapper.show {
         transform: translateX(0);
         box-shadow: var(--shadow-lg);
     }
-    
+
     .main-wrapper {
         margin-left: 0;
         padding: 1.5rem 1.5rem;
     }
-    
+
     .sidebar-toggle-btn {
         display: flex;
     }
-    
+
     .navbar-search-wrapper {
         order: 3;
         max-width: 100%;
         width: 100%;
         margin-top: 0.5rem;
-    }
-    
-    .navbar-custom {
-        display: flex !important;
-        margin-top: -1.5rem;
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
-        padding: 1rem 1.5rem;
-        flex-wrap: wrap;
-        gap: 0.75rem;
     }
 }
 
@@ -1322,7 +1326,7 @@ body.sidebar-minimized .sidebar-profile {
         align-items: flex-start;
         gap: 1rem;
     }
-    
+
     .btn-date-picker {
         width: 100%;
         justify-content: center;
@@ -1333,18 +1337,18 @@ body.sidebar-minimized .sidebar-profile {
    14. Flatpickr Theme Customization (Spark Admin Styles)
 --------------------------------------------------------------------- */
 .flatpickr-calendar {
-    background: #FFFFFF !important;
+    background: #ffffff !important;
     border: 1px solid var(--border-light) !important;
     border-radius: 20px !important;
     box-shadow: var(--shadow-lg) !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
     width: 324px !important;
     padding: 16px 14px 10px 14px !important;
 }
 
 .flatpickr-calendar.arrowTop:before,
 .flatpickr-calendar.arrowTop:after {
-    border-bottom-color: #FFFFFF !important;
+    border-bottom-color: #ffffff !important;
 }
 
 /* Month and Year navigation banner */
@@ -1491,7 +1495,7 @@ span.flatpickr-weekday {
 .flatpickr-day.startRange,
 .flatpickr-day.endRange {
     background-color: var(--brand-forest-medium) !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     box-shadow: 0 4px 10px rgba(5, 28, 18, 0.25) !important;
 }
 
@@ -1514,7 +1518,7 @@ span.flatpickr-weekday {
 .flatpickr-day.today.inRange,
 .flatpickr-day.prevMonthDay.today.inRange,
 .flatpickr-day.nextMonthDay.today.inRange {
-    background-color: #E1FCD2 !important;
+    background-color: #e1fcd2 !important;
     color: var(--brand-forest-medium) !important;
     border-radius: 0 !important;
 }
@@ -1524,7 +1528,7 @@ span.flatpickr-weekday {
 .flatpickr-day.flatpickr-disabled:hover,
 .flatpickr-day.prevMonthDay,
 .flatpickr-day.nextMonthDay {
-    color: #CBD5E1 !important;
+    color: #cbd5e1 !important;
     background: transparent !important;
 }
 
@@ -1532,7 +1536,7 @@ span.flatpickr-weekday {
    15. Dropdown Component Styles (Reusable)
 --------------------------------------------------------------------- */
 .dropdown-menu-custom {
-    background: #FFFFFF !important;
+    background: #ffffff !important;
     border: 1px solid rgba(11, 19, 15, 0.05) !important;
     border-radius: var(--radius-lg) !important;
     box-shadow: var(--shadow-lg) !important;
@@ -1545,7 +1549,7 @@ span.flatpickr-weekday {
 }
 
 .dropdown-menu-custom .dropdown-item {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
     font-size: 0.85rem !important;
     font-weight: 600 !important;
     color: var(--text-muted-green) !important;
@@ -1626,8 +1630,12 @@ span.flatpickr-weekday {
 }
 
 @keyframes rotateLogo {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .footer-separator {
@@ -1649,8 +1657,13 @@ span.flatpickr-weekday {
 }
 
 @keyframes heartBeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 .footer-right {
@@ -1678,7 +1691,6 @@ span.flatpickr-weekday {
     color: var(--brand-forest-dark);
     text-decoration: none;
 }
-
 
 .footer-link .status-dot {
     display: inline-block;
@@ -1712,17 +1724,17 @@ span.flatpickr-weekday {
         margin-top: 1.5rem;
         gap: 1rem;
     }
-    
+
     .footer-left {
         flex-direction: column;
         gap: 0.5rem;
         align-items: center;
     }
-    
+
     .footer-separator {
         display: none;
     }
-    
+
     .footer-links {
         justify-content: center;
         flex-wrap: wrap;
@@ -1749,7 +1761,11 @@ span.flatpickr-weekday {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, var(--brand-lime-translucent) 0%, rgba(180, 241, 5, 0) 70%);
+    background: radial-gradient(
+        circle,
+        var(--brand-lime-translucent) 0%,
+        rgba(180, 241, 5, 0) 70%
+    );
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
@@ -1775,7 +1791,9 @@ span.flatpickr-weekday {
     box-shadow: var(--shadow-lg);
     z-index: 1;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .login-card:hover {
@@ -1871,7 +1889,7 @@ span.flatpickr-weekday {
 }
 
 .login-input:focus {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-color: var(--brand-forest-medium);
     box-shadow: 0 0 0 4px var(--brand-lime-translucent);
 }
@@ -1940,7 +1958,7 @@ span.flatpickr-weekday {
     font-family: "bootstrap-icons";
     font-weight: 900;
     font-size: 0.7rem;
-    color: #FFFFFF;
+    color: #ffffff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1960,7 +1978,7 @@ span.flatpickr-weekday {
 
 .btn-login {
     background-color: var(--brand-forest-medium);
-    color: #FFFFFF;
+    color: #ffffff;
     border: none;
     border-radius: var(--radius-lg);
     padding: 0.85rem;
@@ -1977,7 +1995,7 @@ span.flatpickr-weekday {
 
 .btn-login:hover {
     background-color: var(--brand-forest-dark);
-    color: #FFFFFF;
+    color: #ffffff;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px var(--brand-lime-translucent);
 }
@@ -2006,17 +2024,17 @@ span.flatpickr-weekday {
 
 .login-divider::before,
 .login-divider::after {
-    content: '';
+    content: "";
     flex: 1;
     border-bottom: 1px solid var(--border-light);
 }
 
 .login-divider:not(:empty)::before {
-    margin-right: .75rem;
+    margin-right: 0.75rem;
 }
 
 .login-divider:not(:empty)::after {
-    margin-left: .75rem;
+    margin-left: 0.75rem;
 }
 
 .social-login-grid {
@@ -2027,7 +2045,7 @@ span.flatpickr-weekday {
 }
 
 .btn-social {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--border-light);
     color: var(--text-main);
     border-radius: var(--radius-lg);
@@ -2122,7 +2140,9 @@ span.flatpickr-weekday {
 .navbar-profile-caret {
     font-size: 0.75rem;
     color: var(--text-muted-green);
-    transition: transform 0.2s, color 0.2s;
+    transition:
+        transform 0.2s,
+        color 0.2s;
 }
 
 .navbar-profile-btn:hover .navbar-profile-caret {
@@ -2136,7 +2156,7 @@ span.flatpickr-weekday {
 /* Custom Dropdown Menu for Profile */
 .dropdown-menu-profile {
     width: 200px;
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1px solid var(--border-light) !important;
     border-radius: var(--radius-xl) !important;
     box-shadow: var(--shadow-lg) !important;
@@ -2145,7 +2165,6 @@ span.flatpickr-weekday {
     border: none !important;
     animation: dropdownFadeIn 0.2s ease;
 }
-
 
 .dropdown-menu-profile .dropdown-header {
     font-size: 0.725rem;
@@ -2191,7 +2210,7 @@ span.flatpickr-weekday {
    18. Reusable Premium Table Component
 --------------------------------------------------------------------- */
 .table-card-custom {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: var(--radius-xl);
     border: 1px solid rgba(11, 19, 15, 0.06) !important;
     box-shadow: var(--shadow-sm);
@@ -2215,7 +2234,7 @@ span.flatpickr-weekday {
 }
 
 .table-custom th {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     color: var(--text-muted-green);
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -2229,7 +2248,12 @@ span.flatpickr-weekday {
 }
 
 .table-custom tbody tr:hover {
-    background-color: rgba(180, 241, 5, 0.03); /* Soft brand-lime-glow transparent hover */
+    background-color: rgba(
+        180,
+        241,
+        5,
+        0.03
+    ); /* Soft brand-lime-glow transparent hover */
 }
 
 .table-custom tbody tr:last-child td {
@@ -2274,7 +2298,7 @@ span.flatpickr-weekday {
 }
 
 .badge-table::before {
-    content: '';
+    content: "";
     display: inline-block;
     width: 6px;
     height: 6px;
@@ -2307,7 +2331,7 @@ span.flatpickr-weekday {
 
 /* Table Controls Top bar */
 .table-header-control {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 1.25rem;
     border-bottom: 1px solid rgba(11, 19, 15, 0.06);
     display: flex;
@@ -2329,7 +2353,7 @@ span.flatpickr-weekday {
     font-size: 0.85rem;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(11, 19, 15, 0.1);
-    background-color: #FDFDFD;
+    background-color: #fdfdfd;
     transition: all 0.2s ease-in-out;
 }
 
@@ -2356,7 +2380,7 @@ span.flatpickr-weekday {
 }
 
 .btn-table-action {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid rgba(11, 19, 15, 0.1);
     color: var(--brand-forest-dark);
     font-size: 0.85rem;
@@ -2370,7 +2394,7 @@ span.flatpickr-weekday {
 }
 
 .btn-table-action:hover {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     border-color: var(--brand-forest-medium);
 }
 
@@ -2380,7 +2404,7 @@ span.flatpickr-weekday {
     height: 32px;
     border-radius: var(--radius-md);
     border: 1px solid rgba(11, 19, 15, 0.08);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: var(--brand-forest-dark);
     display: inline-flex;
     align-items: center;
@@ -2392,19 +2416,19 @@ span.flatpickr-weekday {
 
 .table-btn-action:hover {
     background-color: var(--brand-forest-medium);
-    color: #FFFFFF;
+    color: #ffffff;
     border-color: var(--brand-forest-medium);
 }
 
 .table-btn-action.delete:hover {
     background-color: var(--sys-red);
-    color: #FFFFFF;
+    color: #ffffff;
     border-color: var(--sys-red);
 }
 
 /* Table Footer Pagination */
 .table-footer-control {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 1.25rem;
     border-top: 1px solid rgba(11, 19, 15, 0.06);
     display: flex;
@@ -2444,13 +2468,13 @@ span.flatpickr-weekday {
 }
 
 .table-footer-control .pagination .page-link:hover {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     color: var(--brand-forest-medium);
 }
 
 .table-footer-control .pagination .page-item.active .page-link {
     background-color: var(--brand-forest-medium) !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
 }
 
 .table-footer-control .pagination .page-item.disabled .page-link {
@@ -2478,16 +2502,18 @@ span.flatpickr-weekday {
     font-weight: 500;
     line-height: 1.5;
     color: var(--text-main);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     background-clip: padding-box;
     border: 1px solid rgba(11, 19, 15, 0.12);
     border-radius: var(--radius-lg);
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition:
+        border-color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
 }
 
 .form-control-custom:focus {
     color: var(--text-main);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-color: var(--brand-forest-medium);
     outline: 0;
     box-shadow: 0 0 0 3px rgba(7, 47, 31, 0.08);
@@ -2500,7 +2526,7 @@ span.flatpickr-weekday {
 
 .form-control-custom:disabled,
 .form-control-custom[readonly] {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     border-color: rgba(11, 19, 15, 0.06);
     color: var(--text-muted-green);
     opacity: 0.8;
@@ -2529,14 +2555,16 @@ span.flatpickr-weekday {
     font-weight: 500;
     line-height: 1.5;
     color: var(--text-main);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23072F1F' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 12px 10px;
     border: 1px solid rgba(11, 19, 15, 0.12);
     border-radius: var(--radius-lg);
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition:
+        border-color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
     appearance: none;
 }
 
@@ -2547,7 +2575,7 @@ span.flatpickr-weekday {
 }
 
 .form-select-custom:disabled {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     border-color: rgba(11, 19, 15, 0.06);
     color: var(--text-muted-green);
     opacity: 0.8;
@@ -2571,12 +2599,15 @@ span.flatpickr-weekday {
     height: 18px;
     margin-top: 0;
     vertical-align: top;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     border: 1px solid rgba(11, 19, 15, 0.15);
-    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     cursor: pointer;
 }
 
@@ -2608,7 +2639,7 @@ span.flatpickr-weekday {
 }
 
 .form-check-input-custom:disabled {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     border-color: rgba(11, 19, 15, 0.06);
     opacity: 0.8;
     cursor: not-allowed;
@@ -2637,14 +2668,14 @@ span.flatpickr-weekday {
 }
 
 .form-switch-input-custom::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 16px;
     height: 16px;
     border-radius: 50rem;
     left: 1px;
     top: 1px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(11, 19, 15, 0.15);
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2663,7 +2694,7 @@ span.flatpickr-weekday {
 }
 
 .form-switch-input-custom:disabled {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     border-color: rgba(11, 19, 15, 0.06);
     opacity: 0.8;
     cursor: not-allowed;
@@ -2678,9 +2709,11 @@ span.flatpickr-weekday {
     width: 100%;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(11, 19, 15, 0.12);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     overflow: hidden;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition:
+        border-color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
 }
 
 .input-group-custom:focus-within {
@@ -2698,7 +2731,7 @@ span.flatpickr-weekday {
     color: var(--text-muted-green);
     text-align: center;
     white-space: nowrap;
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
 }
 
 .input-group-custom .form-control-custom {
@@ -2793,35 +2826,35 @@ span.flatpickr-weekday {
 .btn-custom-primary {
     background-color: var(--brand-forest-medium);
     border-color: var(--brand-forest-medium);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-custom-primary:hover {
     background-color: var(--brand-forest-dark);
     border-color: var(--brand-forest-dark);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-custom-secondary {
     background-color: var(--brand-lime);
     border-color: var(--brand-lime);
-    color: #072F1F;
+    color: #072f1f;
 }
 
 .btn-custom-secondary:hover {
     background-color: var(--brand-lime-hover);
     border-color: var(--brand-lime-hover);
-    color: #072F1F;
+    color: #072f1f;
 }
 
 .btn-custom-light {
-    background-color: #F8FAF9;
+    background-color: #f8faf9;
     border-color: rgba(11, 19, 15, 0.08);
     color: var(--brand-forest-dark);
 }
 
 .btn-custom-light:hover {
-    background-color: #EEF2F0;
+    background-color: #eef2f0;
     border-color: rgba(11, 19, 15, 0.12);
     color: var(--brand-forest-dark);
 }
@@ -2829,25 +2862,25 @@ span.flatpickr-weekday {
 .btn-custom-danger {
     background-color: var(--sys-red);
     border-color: var(--sys-red);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-custom-danger:hover {
     background-color: #dc2626;
     border-color: #dc2626;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-custom-warning {
-    background-color: #F59E0B;
-    border-color: #F59E0B;
-    color: #FFFFFF;
+    background-color: #f59e0b;
+    border-color: #f59e0b;
+    color: #ffffff;
 }
 
 .btn-custom-warning:hover {
     background-color: #d97706;
     border-color: #d97706;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 /* Custom Buttons outline variants */
@@ -2859,7 +2892,7 @@ span.flatpickr-weekday {
 
 .btn-custom-outline-primary:hover {
     background-color: var(--brand-forest-medium);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .btn-custom-outline-secondary {
@@ -2871,7 +2904,7 @@ span.flatpickr-weekday {
 .btn-custom-outline-secondary:hover {
     background-color: var(--brand-lime);
     border-color: var(--brand-lime);
-    color: #072F1F;
+    color: #072f1f;
 }
 
 .btn-custom-outline-danger {
@@ -2882,7 +2915,7 @@ span.flatpickr-weekday {
 
 .btn-custom-outline-danger:hover {
     background-color: var(--sys-red);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 /* Custom alert components */
@@ -2969,7 +3002,7 @@ span.flatpickr-weekday {
     text-align: center;
     padding: 5rem 2rem;
     min-height: 480px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: var(--radius-xl);
     border: 1px solid rgba(11, 19, 15, 0.06) !important;
     box-shadow: var(--shadow-sm);
@@ -2987,7 +3020,7 @@ span.flatpickr-weekday {
     align-items: center;
     justify-content: center;
     gap: 0.15em;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .error-title-huge .bi-asterisk {
@@ -3086,7 +3119,6 @@ span.flatpickr-weekday {
     width: 85% !important;
 }
 
-
 .empty-state-icon {
     font-size: 3.5rem;
     opacity: 0.25;
@@ -3103,7 +3135,9 @@ span.flatpickr-weekday {
     z-index: 1025;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 }
 
 .sidebar-overlay.show {
@@ -3182,6 +3216,3 @@ span.flatpickr-weekday {
 .text-lime {
     color: var(--brand-lime) !important;
 }
-
-
-

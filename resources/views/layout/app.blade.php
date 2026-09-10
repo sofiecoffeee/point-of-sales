@@ -24,7 +24,7 @@
         <!-- Brand Logo / Identity -->
         <a href="index.html" class="sidebar-brand">
             <i class="bi bi-asterisk"></i>
-            <span>Point of Sales | PPKD</span>
+            <span>POS | PPKD Jakarta Pusat</span>
         </a>
 
         <!-- Navigation Menu -->
@@ -34,65 +34,70 @@
                 <div class="sidebar-menu-title">Menu</div>
                 <ul class="sidebar-menu-list">
                     <li class="sidebar-menu-item">
-                        <a href="index.html" class="sidebar-menu-link" id="menu-overview" title="Overview">
+                        <a href="{{ route('admin.dashboard') }}" class="sidebar-menu-link" id="menu-overview"
+                            title="Overview">
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                </ul>
-            </div>
 
-            <!-- Group: Components -->
-            <div class="sidebar-menu-section">
-                <div class="sidebar-menu-title">Components</div>
-                <ul class="sidebar-menu-list">
-                    <li class="sidebar-menu-item">
-                        <a href="tables-basic.html" class="sidebar-menu-link" id="menu-basictables"
-                            title="Basic Tables">
-                            <i class="bi bi-table"></i>
-                            <span>Basic Tables</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a href="ui-forms.html" class="sidebar-menu-link" id="menu-uiforms" title="Forms and Input">
-                            <i class="bi bi-input-cursor-text"></i>
-                            <span>Forms & Input</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a href="ui-buttons.html" class="sidebar-menu-link" id="menu-uibuttons" title="Buttons">
-                            <i class="bi bi-menu-button-wide-fill"></i>
-                            <span>Buttons & Alerts</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="sidebar-menu-list">
+                        <li class="sidebar-menu-item">
+                            <a href="{{ route('admin.users.index') }}" class="sidebar-menu-link" id="menu-overview"
+                                title="Overview">
+                                <i class="bi bi-people-fill"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                    </ul>
 
-            <!-- Group: Pages -->
-            <div class="sidebar-menu-section">
-                <div class="sidebar-menu-title">Pages</div>
-                <ul class="sidebar-menu-list">
-                    <li class="sidebar-menu-item">
-                        <a href="page-blank.html" class="sidebar-menu-link active" id="menu-blankpage"
-                            title="Blank Page">
-                            <i class="bi bi-file-earmark"></i>
-                            <span>Blank Page</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a href="page-login.html" class="sidebar-menu-link" id="menu-loginpage" title="Login Page">
-                            <i class="bi bi-box-arrow-in-right"></i>
-                            <span>Login Screen</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu-item">
-                        <a href="page-404.html" class="sidebar-menu-link" id="menu-404" title="404 Page">
-                            <i class="bi bi-slash-circle"></i>
-                            <span>Error 404</span>
-                        </a>
-                    </li>
 
-                </ul>
+                    <ul class="sidebar-menu-list">
+                        <li class="sidebar-menu-item">
+                            <a href="index.html" class="sidebar-menu-link" id="menu-overview" title="Overview">
+                                <i class="bi bi-suitcase-lg-fill"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="sidebar-menu-list">
+                        <li class="sidebar-menu-item">
+                            <a href="{{ route('admin.categories.index') }}" class="sidebar-menu-link" id="menu-overview"
+                                title="Overview">
+                                <i class="bi bi-bookmarks-fill"></i>
+                                <span>Item Category</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="sidebar-menu-list">
+                        <li class="sidebar-menu-item">
+                            <a href="{{ route('admin.products.index') }}" class="sidebar-menu-link" id="menu-overview"
+                                title="Overview">
+                                <i class="bi bi-fork-knife"></i>
+                                <span>Products</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="sidebar-menu-list">
+                        <li class="sidebar-menu-item">
+                            <a href="index.html" class="sidebar-menu-link" id="menu-overview" title="Overview">
+                                <i class="bi bi-wallet-fill"></i>
+                                <span>Order Transaction</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="sidebar-menu-list">
+                        <li class="sidebar-menu-item">
+                            <a href="index.html" class="sidebar-menu-link" id="menu-overview" title="Overview">
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
             </div>
         </div>
 
@@ -118,8 +123,9 @@
     <div class="main-wrapper">
 
         <!-- START: Top Navbar Component -->
-        <header class="navbar-custom">
-            <div class="navbar-left">
+        <header class="navbar-custom d-flex align-items-center justify-content-between w-100 px-3">
+
+            <div class="navbar-left d-flex align-items-center">
                 <!-- Desktop sidebar toggle (visible on large screens only) -->
                 <button class="btn-desktop-toggle d-none d-xl-flex align-items-center justify-content-center me-3"
                     id="desktop-sidebar-toggle" aria-label="Minimize Sidebar">
@@ -129,7 +135,7 @@
                 <button class="sidebar-toggle-btn me-2" id="sidebar-toggle" aria-label="Toggle Navigation">
                     <i class="bi bi-list"></i>
                 </button>
-
+                {{-- 
                 <!-- Quick Actions Dropdown -->
                 <div class="dropdown ms-2">
                     <button class="btn-quick-action dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -139,21 +145,31 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-quick-action" aria-labelledby="quick-actions-dropdown">
                         <li class="dropdown-header">Quick Action Shortcuts</li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-plus"></i> New
+                                Invoice</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus"></i> New User</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-seam"></i> New Product</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> System Settings</a>
+                        </li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Mid navbar: search pill -->
             <div class="navbar-search-wrapper">
-                <input type="text" class="navbar-search-input" placeholder="Search anything in Spark..."
-                    id="main-search">
-                <button class="navbar-search-btn" aria-label="Search">
+                {{-- <input type="text" class="navbar-search-input" placeholder="Search anything in Spark..."
+                    id="main-search"> --}}
+                {{-- <button class="navbar-search-btn" aria-label="Search">
                     <i class="bi bi-search"></i>
-                </button>
+                </button> --}}
             </div>
 
             <!-- Right actions -->
-            <div class="navbar-actions">
+            <div class="navbar-actions d-flex align-items-center ms-auto">
                 <!-- Fullscreen Toggle -->
                 <button class="navbar-action-btn me-1" aria-label="Toggle Fullscreen" id="btn-fullscreen">
                     <i class="bi bi-arrows-fullscreen"></i>
@@ -238,21 +254,17 @@
         <div class="page-header">
             <div>
                 <h1 class="page-title">{{ $title ?? '' }}</h1>
-                <p class="page-subtitle">A blank starter template page for custom extensions.</p>
             </div>
         </div>
         <!-- END: Page Header Banner -->
 
         <!-- START: Blank Page Content Area -->
-        <div class="card p-4 border-light shadow-sm text-center">
-            <div>
-                <div class="mb-4 text-lime empty-state-icon">
-                    @yield('content')
-                </div>
-            </div>
-            <!-- END: Blank Page Content Area -->
-         
-    @include('inc.js')
+        <div>
+            @yield('content')
+        </div>
+        <!-- END: Blank Page Content Area -->
+
+        @include('inc.js')
 
 </body>
 
