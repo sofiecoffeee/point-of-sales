@@ -5,25 +5,34 @@
         @csrf
         <div class="card">
             <div class="mb-3">
-                <label class="form-label fs-5 fw-bold">Name</label>
+                <label class="form-label fs-5 fw-bold">Product Name</label>
                 <input class="form-control" type="text" name="name" placeholder="">
             </div>
 
-            <div class="mb-3">
-                <label class="form-label fs-5 fw-bold">Product Image</label>
-                <input class="form-control" type="file" name="photo" placeholder="">
+             <div class="mb-3">
+                <label class="form-label fs-5 fw-bold" for="category">Product Category</label>
+                <select class="form-select" name="category_id" id="categories">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-3">
                 <label class="form-label fs-5 fw-bold">Price</label>
-                <input class="form-control" type="text" name="price"
+                <input class="form-control" type="number" name="price"
                     placeholder="">
             </div>
 
            <div class="mb-3">
                 <label class="form-label fs-5 fw-bold">Stock</label>
-                <input class="form-control" type="text" name="stock"
+                <input class="form-control" type="number" name="stock"
                     placeholder="">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fs-5 fw-bold">Product Image</label>
+                <input class="form-control" type="file" name="photo" placeholder="">
             </div>
 
             <div class="d-flex justify-content-end mb-3">

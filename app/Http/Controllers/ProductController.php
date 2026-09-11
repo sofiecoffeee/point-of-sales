@@ -41,18 +41,18 @@ class ProductController extends Controller
     {
        $validatedData = $request->validate([
             'name'=>'required|string|max:255',
-            'category_id'=>'required|exist:categories_id',
+            'category_id'=>'required|exists:categories,id',
             'price'=>'required|numeric|min:0',
             'stock'=>'required|integer|min:0',
-            'image'=>'nullable|image|max:2048',
+            'photo'=>'nullable|image|max:2048',
         ]);
 
         // buat handle image supaya ada gambarnya
         $imagePath = null;
         // cek dulu ada yang dikirim gaa?
-        if($request->hasFile('image')){
+        if($request->hasFile('photo')){
             // terus kita simpen di folder public/storage/products
-            $imagePath = $request->file('image')->store('products', 'public');
+            $imagePath = $request->file('photo')->store('products', 'public');
         }
 
         // oke sekarang kita siapin data yang mau dimasukin ke database
@@ -101,11 +101,11 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
 
-    $product = Product::findorFails($id);
+    $product = Product::findorFail($id);
 
     $validatedData = $request->validate([
         'name'=>'required|string|max:255',
-        'category_id'=>'required|exist:categories,id',
+        'category_id'=>'required|exists:categories,id',
         'price'=>'required|integer|min:0',
         'stock'=>'required|numeric|min:0',
         'photo'=>'nullable|image|max:2048',
@@ -128,10 +128,11 @@ class ProductController extends Controller
             // buat simpen gambar baru
             $updateData['photo'] = $request->file('photo')->store('products', 'public');
 
-        $product->update($updateData);
+            $product->update($updateData);
 
         return redirect()->route('admin.products.index')->with('success','Products successfully updated!');
         }
+      
     }
 
     /**
@@ -143,7 +144,7 @@ class ProductController extends Controller
 
         // hapus file fisik dari storage kalo ada gambar
         if($product->photo){
-            Storage::disk('public')->delete($products->photo);
+            Storage::disk('public')->delete($product->photo);
         }
 
         $product->delete();

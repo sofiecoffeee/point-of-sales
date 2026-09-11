@@ -32,7 +32,17 @@
                             ID itu kan otomatis. jadi kalo mau nomor 2 yaudah ID+1 aja --}}
                             <td>{{ $index += 1 }}</td>
                             <td>{{ $value->name }}</td>
-                            <td>{{ $value->photo }}</td>
+                            <td>
+                                @if ($value->photo)
+                                <img src="{{asset('storage/'.$value->photo)}}" alt="{{ $value->name }}"
+                                width="100"
+                                height="100"
+                                style="object-fit:cover;">
+                                
+                                @else 
+                                No Image
+                            @endif
+                        </td>
                             <td>{{ $value->price }}</td>
                             <td>{{ $value->stock }}</td>
                             <td>

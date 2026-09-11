@@ -73,7 +73,7 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="index.html" class="sidebar-menu-link" id="menu-overview" title="Overview">
+                            <a href="{{ route('admin.orders.create') }}"  class="sidebar-menu-link" id="menu-overview" title="Overview">
                                 <i class="bi bi-wallet-fill"></i>
                                 <span>Order Transaction</span>
                             </a>
