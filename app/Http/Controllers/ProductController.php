@@ -31,7 +31,7 @@ class ProductController extends Controller
         //Buat ambil daftar kategori buat pilihan kayak dropdown di form produk
         $categories = Category::all();
         $title = "Add Product";
-        return view('admin.products.create', compact('products'));
+        return view('admin.products.create', compact('categories', 'title'));
     }
 
     /**
@@ -58,13 +58,12 @@ class ProductController extends Controller
         // oke sekarang kita siapin data yang mau dimasukin ke database
         $storeData = [
             'name' => $validatedData['name'],
-            'slug'=>str()->slug($validatedData['name']),
             'category_id'=> $validatedData['category_id'],
             'price'=> $validatedData['price'],
             'stock'=> $validatedData['stock'],
 
             // karena bukan data array, tapi path foto
-            'image'=> $imagePath  
+            'photo'=> $imagePath  
 
         ];
 
@@ -109,7 +108,7 @@ class ProductController extends Controller
         'category_id'=>'required|exist:categories,id',
         'price'=>'required|integer|min:0',
         'stock'=>'required|numeric|min:0',
-        'image'=>'nullable|image|max:2048',
+        'photo'=>'nullable|image|max:2048',
     ]);
 
     $updateData = [
@@ -120,14 +119,14 @@ class ProductController extends Controller
         ];
 
      // untuk gambar, kalo mau keliatan gambarnya dan upload gambar baru
-        if($request->hasFile('image')){
+        if($request->hasFile('photo')){
             // buat hapus gamabr lama di storage buat hemat storage
-            if($product->image){
-                Storage::disk('public')->delete($product->image);
+            if($product->photo){
+                Storage::disk('public')->delete($product->photo);
             }
 
             // buat simpen gambar baru
-            $updateData['image'] = $request->file('image')->store('products', 'public');
+            $updateData['photo'] = $request->file('photo')->store('products', 'public');
 
         $product->update($updateData);
 
@@ -143,8 +142,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         // hapus file fisik dari storage kalo ada gambar
-        if($product->image){
-            Storage::disk('public')->delete($products->image);
+        if($product->photo){
+            Storage::disk('public')->delete($products->photo);
         }
 
         $product->delete();
