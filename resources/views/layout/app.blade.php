@@ -51,16 +51,6 @@
                         </li>
                     </ul>
 
-
-                    <ul class="sidebar-menu-list">
-                        <li class="sidebar-menu-item">
-                            <a href="{{ route('admin.roles.index') }}" class="sidebar-menu-link" id="menu-overview" title="Overview">
-                                <i class="bi bi-suitcase-lg-fill"></i>
-                                <span>Roles</span>
-                            </a>
-                        </li>
-                    </ul>
-
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
                             <a href="{{ route('admin.categories.index') }}" class="sidebar-menu-link" id="menu-overview"
@@ -92,7 +82,8 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="index.html" class="sidebar-menu-link" id="menu-overview" title="Overview">
+                            <a href="{{ route('admin.roles.index') }}" class="sidebar-menu-link" id="menu-overview"
+                                title="Overview">
                                 <i class="bi bi-gear-fill"></i>
                                 <span>Settings</span>
                             </a>

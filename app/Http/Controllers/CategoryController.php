@@ -22,8 +22,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         $title = "Create Categories";
-        return view('admin.categories.create');
+
+        return view('admin.categories.create', compact ('categories', 'title'));
     }
 
     /**
@@ -35,10 +37,12 @@ class CategoryController extends Controller
             'name'=>'required|string|max:255|unique:categories,name',
         ]);
 
-        Category:create([
+        Category::create([
             'name'=> $request->name,
-            'slug'->str()->slug($request->name),//buat ubah teks jadi format url biar rapih aja bisa dipake bisa ngga 
+            // 'slug'->Str::()->slug($request->name),//buat ubah teks jadi format url biar rapih aja bisa dipake bisa ngga 
         ]);
+
+        return redirect()->route('admin.categories.index')->with('Success', 'Successfully Add Category');
     }
 
     /**
@@ -57,7 +61,7 @@ class CategoryController extends Controller
     {
         $title = "Edit Categories";
          // pertama, kita cari dulu user berdasarkan ID, kalo ga ketemu/fail nanti muncul halaman 404
-        $user = User::findorFail($id);
+        $category = Category::findorFail($id);
 
     // terus, kita arahin ke view edit, terus kirim data user yang lama
     return view('admin.categories.edit', compact('category'));
@@ -75,7 +79,6 @@ class CategoryController extends Controller
 
         $updateData = [
             'name'=>$validatedData['name'],
-            'slug'=>str()->slug($validatedData['name']),
         ];
 
         $category->update($updateData);

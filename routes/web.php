@@ -33,18 +33,10 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
     Route::resource('/roles', RoleController::class);
 
     // Category Routes
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::resource('/categories', CategoryController::class);
 
     // Product Routes (Diperbaiki menggunakan ProductController)
-    Route::get('/products/index', [ProductController::class, 'index'])->name('products.index');
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::resource('/products', ProductController::class);
 
     // Order Route
     Route::get('/orders', [DashboardController::class, 'index'])->name('orders');
