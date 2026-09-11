@@ -118,8 +118,7 @@
     </style>
     <script type="text/javascript"
         src="{{ config('midtrans.is_production') ? 'https://app.midtrans.com/snap/snap.js' : 'https://app.sandbox.midtrans.com/snap/snap.js' }}"
-        data-client-key="{{ config('midtrans.client_key') }}">
-    </script>
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
 
 
 
@@ -148,7 +147,7 @@
 
                             <div>
                                 <small class="text-muted">Today Transaction</small>
-                                <h4 class="mb-0 fw-bold">10</h4>
+                                <h4 class="mb-0 fw-bold" id="todayTransaction">Rp 0</h4>
                             </div>
                         </div>
                     </div>
@@ -166,7 +165,7 @@
 
                             <div>
                                 <small class="text-muted">Today Income</small>
-                                <h4 class="mb-0 fw-bold">Rp. 500.000</h4>
+                                <h4 class="mb-0 fw-bold" id="todayIncome">Rp 0</h4>
                             </div>
                         </div>
                     </div>
@@ -183,8 +182,8 @@
                             </div>
 
                             <div>
-                                <small class="text-muted">Total Product</small>
-                                <h4 class="mb-0 fw-bold">25</h4>
+                                <small class="text-muted">Total Sold Today</small>
+                                <h4 class="mb-0 fw-bold" id="todayProduct">Rp 0</h4>
                             </div>
                         </div>
                     </div>
@@ -232,8 +231,10 @@
                                                     <span
                                                         class="badge bg-light text-dark mb-2">{{ $product->category->name }}</span>
                                                     <h6 class="fw-bold">{{ $product->name ?? '' }}</h6>
-                                                    <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
-                                                    <small class="d-block text-muted">Stok: {{ $product->stock }}</small>
+                                                    <span class="price">Rp
+                                                        {{ number_format($product->price, 0, ',', '.') }}</span>
+                                                    <small class="d-block text-muted">Stok:
+                                                        {{ $product->stock }}</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -649,7 +650,8 @@
                         }
                     });
                 } else {
-                    alert(`Transaksi ${result.order_id} berhasil disimpan.`);
+                    await loadDashboardData();
+                    alert(`Transaction ${result.order_id} successfully saved.`);
                 }
 
                 cart = [];
@@ -662,6 +664,7 @@
         }
 
         displayCart();
+        loadDashboardData();
 
         document.querySelectorAll('.payment-option').forEach(radio => {
             radio.addEventListener('click', function() {
@@ -683,6 +686,30 @@
             });
 
         });
+
+        async function loadDashboardData() {
+            try {
+                const response = await fetch("{{ route('admin.dashboard.data') }}");
+
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil data dashboard');
+                }
+
+                const data = await response.json();
+
+                document.getElementById('todayTransaction').textContent =
+                    data.today_transaction;
+
+                document.getElementById('todayIncome').textContent =
+                    'Rp ' + Number(data.today_income).toLocaleString('id-ID');
+
+                document.getElementById('todayProduct').textContent =
+                    data.today_product;
+
+            } catch (error) {
+                console.error('Dashboard error:', error);
+            }
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

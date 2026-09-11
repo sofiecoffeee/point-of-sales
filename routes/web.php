@@ -18,6 +18,7 @@ Route::prefix('admin')->group(function(){
 // Admin Authenticated Routes
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/data', [DashboardController::class, 'data'])->name('dashboard.data');
 
     // Users Route kalo pake resource
     Route::resource('/users', UserController::class);
