@@ -2,39 +2,34 @@
 
 namespace App\Http\Controllers;
 use App\Models\Order;
-use App\Models\OrderDetails;
+use Carbon\Carbon;
+
 
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-   public function index()
+   public function index(Request $request)
    {
-      $title = 'Dashboard';
 
-   $title = "Dashboard";
-   return view ('admin.dashboard', compact('title'));
-   }
+    $title = "Dashboard";
 
-    public function data()
-    {
-        $today = today();
+    $startDate = $request->input('start_date', now()->startOfMonth()->format('Y-m-d'));
+    $endDate = $request->input('end_date', now()->endOfMonth()->format('Y-m-d'));
 
-        $revenue = Order::whereData('created_at', $today)->sum('total_price');
-        $transaction = Order::whereDate('created_at', $today)->count();
-        $totalRefund = 0;
-        $netIncome = $revenue - $totalRefund;
+    $revenue = Order::whereBetween('created_at', [
+        Carbon::parse($startDate)->startOfDay(),
+        Carbon::parse($endDate)->endOfDay(),
+    ])->sum('total_price');
 
-        return response()->json([
-            'summary' => [
-                'revenue' => $revenue,
-                'net_income' => $netIncome,
-                'total_refund' => $totalRefund,
-                'transaction' => $transaction, 
-            ]
-
-        ]);
-    }
-
+    $transaction = Order::whereBetween('created_at', [
+        Carbon::parse($startDate)->startOfDay(),
+        Carbon::parse($endDate)->endOfDay(),
+    ])->count();
+    $totalRefund = 0;
+    $netIncome = $revenue - $totalRefund;
   
+    
+    return view ('admin.dashboard', compact('title', 'startDate', 'endDate', 'revenue', 'transaction', 'totalRefund', 'netIncome' ));
+   }
 }

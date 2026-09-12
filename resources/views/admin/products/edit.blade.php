@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('title')
 @section('content')
-    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" class="mt-5" enctype="multipart/form-data">
+    <form action="{{ route('products.update', $product->id) }}" method="POST" class="mt-5" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="card">

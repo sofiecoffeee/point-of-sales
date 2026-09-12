@@ -39,7 +39,7 @@ class UserController extends Controller
         'role_id'=>$validatedData['role_id'],
     ]);
     // nah abis itu kita redirect deh ke halaman index biar keliatan udah kesimpen datanya
-    return redirect()->route('admin.users.index')->with('success', 'User successfully added');
+    return redirect()->route('users.index')->with('success', 'User successfully added');
     
    }
 
@@ -80,7 +80,7 @@ class UserController extends Controller
     // update data ke database
     $user->update($updateData);
 
-    return redirect()->route('admin.users.index')->with('success', 'Successfully update user data!');
+    return redirect()->route('users.index')->with('success', 'Successfully update user data!');
    }
 
    public function destroy($id){
@@ -91,6 +91,6 @@ class UserController extends Controller
     $user->delete();
 
     // redirect ke halaman awal deh
-    return redirect()->route('admin.users.index')->with('success', 'User has been deleted');
+    return redirect()->route('users.index')->with('success', 'User has been deleted');
    }
 }

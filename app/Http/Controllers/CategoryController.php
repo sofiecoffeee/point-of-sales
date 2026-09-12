@@ -42,7 +42,7 @@ class CategoryController extends Controller
             // 'slug'->Str::()->slug($request->name),//buat ubah teks jadi format url biar rapih aja bisa dipake bisa ngga 
         ]);
 
-        return redirect()->route('admin.categories.index')->with('Success', 'Successfully Add Category');
+        return redirect()->route('categories.index')->with('Success', 'Successfully Add Category');
     }
 
     /**
@@ -83,7 +83,7 @@ class CategoryController extends Controller
 
         $category->update($updateData);
 
-        return redirect()->route('admin.categories.index')->with('Success', 'Successfully Update Category');
+        return redirect()->route('categories.index')->with('Success', 'Successfully Update Category');
 
     }
 
@@ -95,6 +95,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with('Success', 'Category has been deleted');
+        return redirect()->route('categories.index')->with('Success', 'Category has been deleted');
     }
 }

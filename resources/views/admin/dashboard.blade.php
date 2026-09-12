@@ -5,7 +5,9 @@
         <div class="d-flex align-items-center justify-content-end w-100">
                 <button class="btn-date-picker" type="button" id="date-picker-trigger">
                 <i class="bi bi-calendar4-event"></i>
-                <span id="selected-date-range">January 12, 2026 - January 23, 2026<span>
+                <span id="selected-date-range">
+                  {{ \Carbon\Carbon::parse($startDate)->format('F d, Y')}}
+                  {{ \Carbon\Carbon::parse($endDate)->format('F d, Y')}}<span>
                 <i class="bi bi-chevron-down ms-1"></i>
       </button>
         </div>
@@ -60,7 +62,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="stat-value">$196.000</div>
+                <div class="stat-value">{{ $netIncome }}</div>
                 <div class="trend-badge trend-up">
                   <i class="bi bi-arrow-up-right"></i>
                   <span>+35% from last month</span>
@@ -72,12 +74,12 @@
             </div>
           </div>
 
-          <!-- Stat Card 3: Total Return -->
+          <!-- Stat Card 3: Transaction -->
           <div class="col-md-4">
             <div class="card card-stat d-flex flex-column justify-content-between">
               <div>
                 <div class="card-header">
-                  <span class="stat-label">Total Return</span>
+                  <span class="stat-label">Transaction</span>
                   <div class="dropdown">
                     <button class="card-more-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                       aria-label="More Options" id="btn-more-return">
@@ -95,7 +97,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="stat-value">$32.000</div>
+                <div class="stat-value">{{ $transaction }}</div>
                 <div class="trend-badge trend-down">
                   <i class="bi bi-arrow-down-left"></i>
                   <span>-24% from last month</span>
@@ -130,7 +132,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-baseline gap-2 mb-3">
-                <span class="stat-value-amount">$196.000</span>
+                <span class="stat-value-amount"></span>
                 <span class="trend-badge trend-up fs-xs">+35% from last month</span>
               </div>
               <div id="revenue-chart"></div>
@@ -294,5 +296,24 @@
         <!-- END: Details Area -->
     </div>
 
+    <script>
+
+    const startDate = @json($startDate);
+    const endDate = @json($endDate);
+
+    document.getElementById('date-picker-trigger').addEventListener('click', function () {
+    applyDateFilter(startDate, endDate);
+    });
+
+    function applyDateFilter(startDate, endDate) {
+    const url = new URL(window.location.href);
+
+    url.searchParams.set('start_date', startDate);
+    url.searchParams.set('end_date', endDate);
+
+    window.location.href = url.toString();
+    }
+    
+    </script>
     
 @endsection

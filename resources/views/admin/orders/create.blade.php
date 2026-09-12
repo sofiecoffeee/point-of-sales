@@ -63,17 +63,21 @@
         }
 
         .product-image {
-            height: 130px;
+            height: 200px;
             display: flex;
-            /* align-items: center; */
+            align-items: center;
             justify-content: center;
         }
 
         .product-image img {
-           .product-card img {
-            aspect-ratio: 4 / 3; /* Atau sesuaikan dengan proporsi gambar asli */
+            /* Atau sesuaikan dengan proporsi gambar asli */
             width: 100%;
             height: auto;
+            object-fit:cover;
+        }
+
+        .card-text {
+            backdrop-filter: blur(8px);
         }
 
 
@@ -227,16 +231,16 @@
                                             onclick="addToCart({{ $product->id }})">
                                             <div class="card product-card shadow h-100">
                                                 <div class="product-image"><img
-                                                        src="{{ asset('storage/' . $product->photo) }}" alt="">
+                                                        src="{{ asset('storage/' . $product->photo) }}" alt="" style="object-fit: cover" width="100%" height="100%">
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body bg-black bg-opacity-25 card-text">
                                                     <span
-                                                        class="badge bg-light text-dark mb-2">{{ $product->category->name }}</span>
+                                                        class="badge bg-light text-dark mb-2">{{ $product->category->name }}</span> 
                                                     <h6 class="fw-bold">{{ $product->name ?? '' }}</h6>
                                                     <span class="price">Rp
                                                         {{ number_format($product->price, 0, ',', '.') }}</span>
-                                                    <small class="d-block text-muted">Stok:
-                                                        {{ $product->stock }}</small>
+                                                    {{-- <small class="d-block text-muted">Stok:
+                                                        {{ $product->stock }}</small> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -252,7 +256,7 @@
                             <div class="d-flex justify-content-between mb-3">
                                  <i class="bi bi-cart4
                                     fw-bold mx-2">Cart</i>   
-                                        <span class="badge bg-dark" id="cartCount">0</span>
+                                        <span class="badge bg-dark" id="cartCount">0</span> 
                             </div>
                             <div class="mb-3" id="cartItems">
                                 <div class="text-center text-muted py-5">
@@ -608,7 +612,7 @@
             const changeMoney = resultChange.changeMoney;
 
             try {
-                const response = await fetch("{{ route('admin.orders.store') }}", {
+                const response = await fetch("{{ route('orders.store') }}", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -692,7 +696,7 @@
 
         async function loadDashboardData() {
             try {
-                const response = await fetch("{{ route('admin.orders.data') }}");
+                const response = await fetch("{{ route('orders.data') }}");
 
                 if (!response.ok) {
                     throw new Error('Gagal mengambil data dashboard');

@@ -7,7 +7,7 @@
     @endif
     <div class="card">
         <div class="d-flex align-items-center justify-content-end w-100">
-            <a href="{{ route('admin.users.create') }}"><button class="btn btn-primary" type="button">
+            <a href="{{ route('users.create') }}"><button class="btn btn-primary" type="button">
                     <i class="bi bi-plus-lg text-light"></i><span class="text-white">Create</span>
             </a>
 
@@ -37,12 +37,12 @@
                             <td>{{ $value->role->name }}</td>
                             <td>
                                 {{-- edit pake anchor krn cuma nampilin form baru, cukup link biasa udah bisa buka URL edit --}}
-                                <a href="{{ route('admin.users.edit', $value->id) }}" class="btn btn-warning btn-sm">Edit
+                                <a href="{{ route('users.edit', $value->id) }}" class="btn btn-warning btn-sm">Edit
                                 </a>
 
                                 {{-- delete pake post krn berdasarkan aturan web, kalo ubah data gabole pake link biasa. ga aman.
                             jadi harus pake form dan dilengkapi csrf(token keamanan laravel) --}}
-                                <form action="{{ route('admin.users.destroy', $value->id) }}" method="post"
+                                <form action="{{ route('users.destroy', $value->id) }}" method="post"
                                     class="d-inline">
                                     @csrf
                                     @method('DELETE')

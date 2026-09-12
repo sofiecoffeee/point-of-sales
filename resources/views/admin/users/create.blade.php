@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('title')
 @section('content')
-    <form action="{{ route('admin.users.store') }}" method="POST" class="mt-5" enctype="multipart/form-data">
+    <form action="{{ route('users.store') }}" method="POST" class="mt-5" enctype="multipart/form-data">
         @csrf
         <div class="card">
             <div class="mb-3">

@@ -34,7 +34,7 @@
                 <div class="sidebar-menu-title">Menu</div>
                 <ul class="sidebar-menu-list">
                     <li class="sidebar-menu-item">
-                        <a href="{{ route('admin.dashboard') }}" class="sidebar-menu-link" id="menu-overview"
+                        <a href="{{ route('dashboard') }}" class="sidebar-menu-link" id="menu-overview"
                             title="Overview">
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
@@ -43,7 +43,7 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="{{ route('admin.users.index') }}" class="sidebar-menu-link" id="menu-overview"
+                            <a href="{{ route('users.index') }}" class="sidebar-menu-link" id="menu-overview"
                                 title="Overview">
                                 <i class="bi bi-people-fill"></i>
                                 <span>Users</span>
@@ -53,7 +53,7 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="{{ route('admin.categories.index') }}" class="sidebar-menu-link" id="menu-overview"
+                            <a href="{{ route('categories.index') }}" class="sidebar-menu-link" id="menu-overview"
                                 title="Overview">
                                 <i class="bi bi-bookmarks-fill"></i>
                                 <span>Item Category</span>
@@ -63,7 +63,7 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="{{ route('admin.products.index') }}" class="sidebar-menu-link" id="menu-overview"
+                            <a href="{{ route('products.index') }}" class="sidebar-menu-link" id="menu-overview"
                                 title="Overview">
                                 <i class="bi bi-fork-knife"></i>
                                 <span>Products</span>
@@ -73,7 +73,7 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="{{ route('admin.orders.create') }}"  class="sidebar-menu-link" id="menu-overview" title="Overview">
+                            <a href="{{ route('orders.create') }}"  class="sidebar-menu-link" id="menu-overview" title="Overview">
                                 <i class="bi bi-wallet-fill"></i>
                                 <span>Order Transaction</span>
                             </a>
@@ -82,7 +82,7 @@
 
                     <ul class="sidebar-menu-list">
                         <li class="sidebar-menu-item">
-                            <a href="{{ route('admin.roles.index') }}" class="sidebar-menu-link" id="menu-overview"
+                            <a href="{{ route('roles.index') }}" class="sidebar-menu-link" id="menu-overview"
                                 title="Overview">
                                 <i class="bi bi-gear-fill"></i>
                                 <span>Settings</span>
@@ -226,15 +226,15 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-profile"
                         aria-labelledby="profile-dropdown">
                         <li class="dropdown-header">Welcome !</li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> My Account</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Settings</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-lock"></i> Lock Screen</a></li>
                         <li>
-                            <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item text-danger" href="page-login.html"><i
-                                    class="bi bi-box-arrow-right"></i>
-                                Logout</a></li>
+                        <form action="{{ route('logout') }}" id="logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item text-danger oncLick="event.preventDefault(); document.getElementById('logout').submit()">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Logout     
+                            </button>
+                        </form>
                     </ul>
                 </div>
             </div>
