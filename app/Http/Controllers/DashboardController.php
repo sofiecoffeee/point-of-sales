@@ -18,24 +18,23 @@ class DashboardController extends Controller
 
     public function data()
     {
-        // Jumlah transaksi hari ini
-        $todayTransaction = Order::whereDate('created_at', today())
-            ->count();
+        $today = today();
 
-        // Total income hari ini
-        $todayIncome = Order::whereDate('created_at', today())
-            ->sum('total_price');
-
-        // Total quantity produk yang terjual hari ini
-        $todayProduct = OrderDetails::whereHas('order', function ($query) {
-            $query->whereDate('created_at', today());
-        })->sum('qty');
+        $revenue = Order::whereData('created_at', $today)->sum('total_price');
+        $transaction = Order::whereDate('created_at', $today)->count();
+        $totalRefund = 0;
+        $netIncome = $revenue - $totalRefund;
 
         return response()->json([
-            'today_transaction' => $todayTransaction,
-            'today_income' => $todayIncome,
-            'today_product' => $todayProduct,
+            'summary' => [
+                'revenue' => $revenue,
+                'net_income' => $netIncome,
+                'total_refund' => $totalRefund,
+                'transaction' => $transaction, 
+            ]
+
         ]);
     }
+
   
 }

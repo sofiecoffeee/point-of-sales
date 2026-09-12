@@ -19,6 +19,7 @@ Route::prefix('admin')->group(function(){
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/data', [DashboardController::class, 'data'])->name('dashboard.data');
+   
 
     // Users Route kalo pake resource
     Route::resource('/users', UserController::class);
@@ -41,5 +42,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
     Route::resource('/products', ProductController::class);
 
     // Order Route
+    Route::get('/orders/data', [OrderController::class, 'data'])->name('orders.data');
     Route::resource('/orders', OrderController::class);
 });

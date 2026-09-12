@@ -70,10 +70,12 @@
         }
 
         .product-image img {
+           .product-card img {
+            aspect-ratio: 4 / 3; /* Atau sesuaikan dengan proporsi gambar asli */
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
         }
+
 
         .product.item {
             cursor: pointer;
@@ -132,7 +134,7 @@
                     <h3 class="fw-bold mb-1">Point of Sales</h3>
                     <p class="text-muted">POS - Toko Kopi PPKD Jakarta Pusat</p>
                 </div>
-                <button type="button" class="btn btn-dark" onclick="clearCart()">Empty Cart</button>
+                <button type="button" class="btn btn-danger" onclick="clearCart()">Empty Cart</button>
             </div>
             <div class="row g-4">
                 <!-- Card 1 -->
@@ -200,7 +202,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <input type="text" id="searchProduct" class="form-control"
-                                        onkeyup="searchProduct()" placeholder="Search Product...">
+                                        onkeyup="searchProduct()" placeholder="🔎︎ Search product">
                                 </div>
                                 <div class="mb-4">
                                     <button class="btn btn-sm me-1 category-btn" onclick="filterCategory('all', this)"
@@ -248,13 +250,14 @@
                     <div class="card border-0 shadow cart-box">
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
-                                <div> <i class="bi bi-cart4" style="fw-bold"></i>Cart</div>
-                                <span class="badge bg-dark" id="cartCount">0</span>
+                                 <i class="bi bi-cart4
+                                    fw-bold mx-2">Cart</i>   
+                                        <span class="badge bg-dark" id="cartCount">0</span>
                             </div>
                             <div class="mb-3" id="cartItems">
                                 <div class="text-center text-muted py-5">
                                     <i class="bi bi-cart4"></i>
-                                    <p>Empty Cart</p>
+                                    <p class="">Empty Cart</p>
                                 </div>
                             </div>
 
@@ -689,7 +692,7 @@
 
         async function loadDashboardData() {
             try {
-                const response = await fetch("{{ route('admin.dashboard.data') }}");
+                const response = await fetch("{{ route('admin.orders.data') }}");
 
                 if (!response.ok) {
                     throw new Error('Gagal mengambil data dashboard');
